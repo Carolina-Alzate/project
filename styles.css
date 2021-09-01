@@ -92,7 +92,7 @@ input {
 }
 
 .content {
-  font-size: 10vh;
+  font-size: 6rem;
   text-align: center;
   margin-top: 100px;
 }
@@ -214,4 +214,45 @@ input {
   transition: all 0.25s ease-out;
   user-select: none;
   top: 200px;
+}
+
+/*Responsive*/
+
+@media only screen and (max-width: 600px) {
+  .letters {
+    font-size: 4rem;
+    text-shadow: -2px 5px 20px rgb(0, 0, 0, 0.8);
+  }
+  .content {
+    font-size: 2rem;
+  }
+  .menu {
+    height: auto;
+    padding-bottom: 50px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .letters {
+    font-size: 8rem;
+    text-shadow: -8px 5px 20px #000000;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .letters {
+    font-size: 10rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .letters {
+    font-size: 12rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .letters {
+    font-size: 20rem;
+  }
 }
