@@ -7,15 +7,220 @@ body {
   background-color: #fceee5;
 }
 
-.menu_item {
-  list-style: none;
-  display: flex;
-  justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.menu_item a {
+body {
+  background-color: #1a1a2e;
+}
+
+input {
+  display: none;
+}
+
+.navigation {
+  z-index: 10;
+  position: fixed;
+}
+
+.navMenu {
+  width: 24px;
+  height: 20px;
+  display: block;
+  padding: 15px;
+  cursor: pointer;
+  position: fixed;
+  right: 50px;
+  z-index: 12;
+}
+
+.naviOpen {
+  background-color: white;
+  width: 24px;
+  height: 4px;
+  display: block;
+  border-radius: 2px;
+  cursor: pointer;
+  position: fixed;
+  top: 82px;
+}
+
+.naviOpen:before {
+  content: "";
+  background-color: white;
+  width: 24px;
+  height: 4px;
+  display: block;
+  border-radius: 2px;
+  position: relative;
+  top: -8px;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.naviMenu:hover .naviOpen:before {
+  top: -9px;
+}
+
+.naviMenu:hover .naviOpen:after {
+  top: 5px;
+}
+
+.naviOpen:after {
+  content: "";
+  background-color: white;
+  width: 24px;
+  height: 4px;
+  display: block;
+  border-radius: 2px;
+  position: relative;
+  top: 4px;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.menu {
+  width: 100vw;
+  height: 100vw;
+  top: 0;
+  left: 0;
+  background-color: #16213e;
+}
+
+.menu label {
+  width: 23px;
+  height: 30px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.content {
+  font-size: 10vh;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.content ul li {
+  margin: 10px 0;
+  transform: translateY(30px);
+  transition: all 250ms linear;
+}
+
+.content ul li a {
+  display: block;
+  color: white;
   text-decoration: none;
+  transition: color 0.2s;
   font-family: "Chillax", sans-serif;
-  color: #a38089;
-  font-size: 1.5em;
+  text-transform: uppercase;
+  padding: 10px 0;
+  letter-spacing: 8px;
+  position: relative;
+  transition: all 250ms linear;
+}
+
+.content ul li a:hover {
+  text-decoration: none;
+  background: linear-gradient(
+    300deg,
+    rgba(233, 69, 96, 1) 0%,
+    rgba(255, 107, 107, 1) 50%,
+    rgba(253, 210, 191, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content ul li a:after {
+  display: block;
+  position: absolute;
+  top: 45%;
+  content: "";
+  height: 2vh;
+  width: 0;
+  left: 0;
+  background-color: #16213e;
+  opacity: 0.8;
+  transition: width 100ms linear;
+  z-index: 12;
+}
+
+.content ul li a:hover:after {
+  width: 100%;
+}
+
+.effects {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.effects ul {
+  transform: translateY(0%);
+  transition: all 0.5s;
+  list-style: none;
+}
+
+#menuToggle:checked ~ .effects {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s;
+  z-index: 11;
+  top: 0;
+  position: absolute;
+}
+#menuToggle:checked ~ .effects ul {
+  opacity: 1;
+}
+
+#menuToggle:checked ~ .navMenu .naviOpen {
+  background-color: transparent;
+}
+
+#menuToggle:checked ~ .navMenu .naviOpen:before {
+  content: "";
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 11;
+}
+
+#menuToggle:checked ~ .navMenu .naviOpen::after {
+  content: "";
+  background-color: white;
+  transform: rotate(-45deg);
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 11;
+}
+
+#menuToggle:not(:checked) ~ .effects ul {
+  transform: translateY(-30%);
+}
+
+.tittle {
+  width: 100vw;
+  height: auto;
+}
+
+.letters {
+  position: relative;
+  text-transform: uppercase;
+  text-shadow: -15px 5px 20px #000000;
+  color: #1a1a2e;
+  letter-spacing: -0.2em;
+  font-family: "Chillax", sans-serif;
+  font-size: 20rem;
+  transition: all 0.25s ease-out;
+  user-select: none;
+  top: 200px;
 }
